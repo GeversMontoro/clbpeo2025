@@ -27,9 +27,9 @@ Contains analyses for secondary outcome measures:
 Contains moderation and mediation analyses:
 
 - **`3.CLBPEO_Moderators.R`** - Moderation analysis examining treatment effect modifiers
-- **`3.CLBPEO_mlmed.R`** - Main mediation analysis for PCS and Chairst30
-- **`3.CLBPEO_mlmed_by_group.R`** - Group-based mediation analysis (Videos vs Zoom)
-- **`3.CLBPEO_mlmed_othervar.R`** - Mediation analysis for 22 additional potential mediators
+- **`3.CLBPEO_mlmed_time.R`** - Main mediation analysis
+- **`3.CLBPEO_mlmed_time_bygroup.R`** - Group-based mediation analysis (Videos vs Zoom)
+- **`3.CLBPEO_mlmed_time_EDD.R`** - Mediation analysis for EDD (data requires a transformation)
 
 ## Key Features
 
@@ -39,12 +39,6 @@ Contains moderation and mediation analyses:
 - **Bootstrap Resampling** (5000 iterations) for confidence intervals and p-values
 - **Multiple Imputation** using MICE with PMN method
 - **MCAR Testing** using Little's test
-
-### 📊 Main Findings
-- **Primary Mediators**: PCS (Pain Catastrophizing Scale) and Chairst30 (30-second chair stand test)
-- **Significant Indirect Effects**: Both PCS and Chairst30 showed significant mediation effects
-- **Group Differences**: No significant differences between Videos vs Zoom delivery methods
-- **Other Mediators**: 22 additional variables tested, none showed significant indirect effects
 
 ### 🔧 Technical Details
 - **Reproducibility**: All bootstrap analyses use `set.seed(1234)`
@@ -76,15 +70,8 @@ Rscript 1.CLBPEO_ITT.R
 Rscript 2.CLBPEO_questionnaires.R
 
 # Mediation analysis
-Rscript 3.CLBPEO_mlmed.R
+Rscript 3.CLBPEO_mlmed_time.R
 ```
-
-## Output Files
-
-- **`model_mlmed_main.txt`** - Main mediation results (PCS and Chairst30)
-- **`model_mlmed_by_group.txt`** - Group-based mediation results
-- **`model_mlmed_other_mediators.txt`** - Results for 22 additional mediators
-- **`model_moderators.txt`** - Moderation analysis results
 
 ## Statistical Notes
 
@@ -102,14 +89,6 @@ These are handled robustly with error catching and alternative estimation method
 - **Confidence intervals** calculated using percentile method
 - **P-values** derived from bootstrap distributions
 
-## Citation
-
-If you use this analysis pipeline, please cite:
-
-```
-Gevers-Montoro, C. (2025). CLBPEO 2025 Analysis Repository. 
-Chronic Low Back Pain Exercise Online Study Statistical Analysis Pipeline.
-```
 
 ## Contact
 
